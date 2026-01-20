@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.github.nnbros.rtp</groupId>
+        <artifactId>rtp-common</artifactId>
+        <version>0.4.1</version>
+    </parent>
+
+    <description>Spring autoconfiguration for rtp common library</description>
+    <artifactId>rtp-common-springboot-autoconfigure</artifactId>
+    <name>rtp-common-springboot-autoconfigure</name>
+    <version>${parent.version}</version>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.github.nnbros.rtp</groupId>
+            <artifactId>rtp-common-core</artifactId>
+        </dependency>
+    </dependencies>
+</project>
