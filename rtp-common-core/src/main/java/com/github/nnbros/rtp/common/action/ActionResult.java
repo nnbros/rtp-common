@@ -21,6 +21,6 @@ public class ActionResult<T> {
 	}
 
 	public ActionResult(ActionContext actionContext, boolean isSuccessful) {
-		this(actionContext, true, null);
+		this(actionContext, isSuccessful, null);
 	}
 }

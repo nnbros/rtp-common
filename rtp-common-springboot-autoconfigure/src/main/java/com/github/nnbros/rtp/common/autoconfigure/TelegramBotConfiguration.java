@@ -1,9 +1,11 @@
 package com.github.nnbros.rtp.common.autoconfigure;
 
 import com.github.guronas.telegram.bot.elements.TelegramElementRegistry;
+import com.github.nnbros.rtp.common.action.ActionErrorProcessor;
 import com.github.nnbros.rtp.common.telegram.DefaultTelegramClient;
 import com.github.nnbros.rtp.common.telegram.MessageBuilder;
 import com.github.nnbros.rtp.common.telegram.MessageBuilderImpl;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -30,8 +32,14 @@ public class TelegramBotConfiguration {
 
 	//TODO Refactor and add flag to check if TelegramElementRegistry is needed. Better do it in Telegram elements lib.
 	@Bean("defaultTelegramClient")
-	@ConditionalOnProperty(prefix = "elements", name = "working-directory")
+	@ConditionalOnProperty(prefix = "telegram.elements", name = "working-directory")
 	public DefaultTelegramClient defaultTelegramClient(TelegramClient telegramClient, TelegramElementRegistry elementRegistry) {
 		return new DefaultTelegramClient(telegramClient, elementRegistry);
+	}
+
+	@Bean
+	@ConditionalOnBean(DefaultTelegramClient.class)
+	public ActionErrorProcessor actionErrorProcessor(DefaultTelegramClient defaultTelegramClient){
+		return new ActionErrorProcessor(defaultTelegramClient);
 	}
 }

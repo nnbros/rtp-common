@@ -1,15 +1,20 @@
 package com.github.nnbros.rtp.common;
 
+import com.github.nnbros.rtp.common.action.ActionContext;
+import com.github.nnbros.rtp.common.telegram.UpdateType;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.api.objects.chat.Chat;
 import org.telegram.telegrambots.meta.api.objects.message.Message;
 
 public class CommonTestUtils {
+	public static final int TEST_MESSAGE_ID = 55;
 	public static final int TEST_UPDATE_ID = 456;
 	public static final String TEST_TEXT = "util";
 	public static final long TEST_USER_ID = 123L;
+	public static final String TEST_CHAT_ID = "123";
 	public static final String CHAT_PRIVATE_TYPE = "private";
+	public static final String TEST_ACTION = "testAction";
 
 	public static Message createTestMessage() {
 		return createTestMessage(TEST_TEXT);
@@ -54,5 +59,9 @@ public class CommonTestUtils {
 		update.setEditedMessage(message);
 		update.setUpdateId(TEST_UPDATE_ID);
 		return update;
+	}
+
+	public static ActionContext createTestActionContext() {
+		return new ActionContext(TEST_ACTION, TEST_USER_ID, UpdateType.MESSAGE, createTestMessageUpdate(), null, null);
 	}
 }
