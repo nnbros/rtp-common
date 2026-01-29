@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.github.nnbros.rtp</groupId>
+        <artifactId>rtp-common</artifactId>
+        <version>0.4.1</version>
+    </parent>
+
+    <description>Rtp common library basic classes</description>
+    <artifactId>rtp-common-core</artifactId>
+    <name>rtp-common-core</name>
+    <version>${parent.version}</version>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots-client</artifactId>
+            <version>${telegrambots.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.guronas</groupId>
+            <artifactId>telegram-bot-elements-springboot-starter</artifactId>
+            <version>${telegram-bot-elements.version}</version>
+        </dependency>
+    </dependencies>
+</project>
